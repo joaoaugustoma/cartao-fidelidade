@@ -10,7 +10,7 @@ import {PremiosComponent} from "./pages/main/pages/premios/premios.component";
 import {MainComponent} from "./pages/main/main.component";
 
 const routes: Routes = [
-  { path: 'home', component: MainComponent, children: [
+  { path: '', component: MainComponent, children: [
       { path: '', component: LojasComponent},
       { path: 'lojas', component: LojasComponent},
       { path: 'produtos', component: ProdutosComponent},
@@ -19,7 +19,6 @@ const routes: Routes = [
       { path: 'premios', component: PremiosComponent},
     ]},
   { path: 'login', component: LoginComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'}
 ]
 
 @NgModule({
