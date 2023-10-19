@@ -1,1 +1,34 @@
-<p>produtos works!</p>
+<div class="w-full p-4">
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Razão Social</label>
+    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Razão Social" #input>
+  </div>
+
+  <div class="bg-white shadow-md rounded-lg">
+    <table class="w-full" mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.id }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="razaoSocial">
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> Razão Social </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.razaoSocial }}% </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cnpj">
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> CNPJ </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.cnpj }} </td>
+      </ng-container>
+
+      <tr class="bg-gray-100" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="bg-white" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>
+  </div>
+</div>

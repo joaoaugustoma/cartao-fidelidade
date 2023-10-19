@@ -18,6 +18,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {LoginComponent} from './pages/login/login.component';
 import {LoginFormComponent} from './pages/login/login-form/login-form.component';
+import { PerfilComponent } from './pages/main/pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {LoginFormComponent} from './pages/login/login-form/login-form.component'
     ClientesComponent,
     DescontosComponent,
     PremiosComponent,
-    MainComponent]
+    MainComponent,
+    PerfilComponent]
   ,
   imports: [
     BrowserModule,
