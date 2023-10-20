@@ -12,7 +12,6 @@ import {LojasComponent} from "./pages/main-vendedor/lojas/lojas.component";
 import {ProdutosComponent} from "./pages/main-vendedor/produtos/produtos.component";
 import {ClientesComponent} from "./pages/main-vendedor/clientes/clientes.component";
 import {DescontosComponent} from "./pages/main-vendedor/descontos/descontos.component";
-import {PremiosComponent} from "./pages/main-vendedor/premios/premios.component";
 
 const routes: Routes = [
   { path: 'loginCliente', component: LoginClienteComponent},
@@ -29,7 +28,6 @@ const routes: Routes = [
       { path: 'produtos', component: ProdutosComponent},
       { path: 'clientes', component: ClientesComponent},
       { path: 'descontos', component: DescontosComponent},
-      { path: 'premios', component: PremiosComponent},
       { path: 'perfil', component: PerfilVendedorComponent}
     ]
   },

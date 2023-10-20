@@ -13,16 +13,19 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./helpers/token.interceptor";
 import {LoginModule} from "./pages/login/login.module";
 import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.component";
-import { LojasComponent } from './pages/main-vendedor/lojas/lojas.component';
-import { ProdutosComponent } from './pages/main-vendedor/produtos/produtos.component';
-import { ClientesComponent } from './pages/main-vendedor/clientes/clientes.component';
-import { DescontosComponent } from './pages/main-vendedor/descontos/descontos.component';
-import { PremiosComponent } from './pages/main-vendedor/premios/premios.component';
+import {LojasComponent} from './pages/main-vendedor/lojas/lojas.component';
+import {ProdutosComponent} from './pages/main-vendedor/produtos/produtos.component';
+import {ClientesComponent} from './pages/main-vendedor/clientes/clientes.component';
+import {DescontosComponent} from './pages/main-vendedor/descontos/descontos.component';
 import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component";
 import {PontosComponent} from "./pages/main-cliente/pontos/pontos.component";
 import {PerfilVendedorComponent} from "./pages/main-vendedor/perfil/perfil-vendedor.component";
 import {PerfilClienteComponent} from "./pages/main-cliente/perfil/perfil-cliente.component";
-import { CnpjFormatPipe } from './pipe/cnpj-format.pipe';
+import {CnpjFormatPipe} from './pipe/cnpj-format.pipe';
+import {NgChartsModule} from "ng2-charts";
+import {DonutChartComponent} from './pages/main-cliente/donut-chart/donut-chart.component';
+import {MatCardModule} from "@angular/material/card";
+import {BarChartComponent} from './pages/main-cliente/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,9 @@ import { CnpjFormatPipe } from './pipe/cnpj-format.pipe';
     ProdutosComponent,
     ClientesComponent,
     DescontosComponent,
-    PremiosComponent,
-    CnpjFormatPipe
+    CnpjFormatPipe,
+    DonutChartComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,10 @@ import { CnpjFormatPipe } from './pipe/cnpj-format.pipe';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    LoginModule
+    LoginModule,
+    BrowserModule,
+    NgChartsModule,
+    MatCardModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
