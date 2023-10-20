@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LoginModule} from "./pages/login/login.module";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MainComponent} from './pages/main/main.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -15,6 +14,8 @@ import {PerfilComponent} from './pages/main/perfil/perfil.component';
 import {PontosComponent} from './pages/main/pontos/pontos.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "../helpers/token.interceptor";
+import {LoginModule} from "./pages/login/login.module";
+
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {TokenInterceptor} from "../helpers/token.interceptor";
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    LoginModule
+    LoginModule,
+    InputMaskModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

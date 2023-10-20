@@ -1,0 +1,17 @@
+.split-view-container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.split-view-container > div {
+  width: 50%;
+}
+
+.split-view-container > .left {
+  background: #EFEFEF;
+}
+
+.split-view-container > .right {
+  background: #fff;
+}

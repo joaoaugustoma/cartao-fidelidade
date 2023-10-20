@@ -1,25 +1,31 @@
 import { NgModule } from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import { LoginComponent } from './login.component';
+import { LoginVendedorComponent } from './login-vendedor/login-vendedor.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {RouterLink, RouterLinkWithHref, RouterOutlet} from "@angular/router";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
-import {LoginFormComponent} from "./login-form/login-form.component";
+import {LoginVendedorFormComponent} from "./login-vendedor/login-vendedor-form/login-vendedor-form.component";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {LoginClienteComponent} from "./login-cliente/login-cliente.component";
+import {LoginClienteFormComponent} from "./login-cliente/login-cliente-form/login-cliente-form.component";
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    LoginFormComponent
+    LoginVendedorComponent,
+    LoginVendedorFormComponent,
+    LoginClienteComponent,
+    LoginClienteFormComponent
   ],
   exports: [
-    LoginComponent,
-    LoginFormComponent
+    LoginVendedorComponent,
+    LoginVendedorFormComponent,
+    LoginClienteComponent,
+    LoginClienteFormComponent
   ],
   imports: [
     CommonModule,
