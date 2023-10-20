@@ -14,14 +14,14 @@ export class LoginVendedorFormComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      cnpj: new FormControl('', [Validators.required]),
       senha: new FormControl('', Validators.required),
     });
   }
 
   public login() {
     this.authenticationService.loginVendedor(
-      this.loginForm.get('email')!.value,
+      this.loginForm.get('cnpj')!.value,
       this.loginForm!.get('senha')!.value
     );
   }

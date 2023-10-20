@@ -8,11 +8,11 @@
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form class="space-y-6" action="#" method="POST" [formGroup]="loginForm">
       <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">E-mail</label>
+        <label for="cnpj" class="block text-sm font-medium leading-6 text-gray-900">CNPJ</label>
         <div class="mt-2">
-          <input id="email" name="email" type="email" required
+          <input id="cnpj" name="cnpj" type="text" required
                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 matInput formControlName="email">
+                 matInput formControlName="cnpj" [mask] = "'00.000.000/0000-00'">
         </div>
       </div>
 

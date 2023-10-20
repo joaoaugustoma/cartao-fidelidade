@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AuthenticationClient} from "../app/auth/authentication.client";
+import {AuthenticationClient} from "../auth/authentication.client";
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -20,8 +20,8 @@ export class AuthenticationService {
     });
   }
 
-  public loginVendedor(email: string, senha: string): void {
-    this.authenticationClient.loginVendedor(email, senha).subscribe((token) => {
+  public loginVendedor(cnpj: string, senha: string): void {
+    this.authenticationClient.loginVendedor(cnpj, senha).subscribe((token) => {
       localStorage.setItem(this.tokenKey, token);
       this.router.navigate(['/vendedor']);
     });

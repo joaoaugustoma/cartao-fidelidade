@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {environment} from "../../environment/environment";
+import {environment} from "../environment/environment";
 
 @Injectable({
   providedIn: 'root',
@@ -9,22 +9,22 @@ import {environment} from "../../environment/environment";
 export class AuthenticationClient {
   constructor(private http: HttpClient) {}
 
-  public loginCliente(cpf: string, senha: string): Observable<string> {
+  public loginVendedor(cnpj: string, senha: string): Observable<string> {
     return this.http.post(
-      environment.apiUrl + '/cliente/login',
+      environment.apiUrl + '/loja/login',
       {
-        cpf: cpf,
+        cnpj: cnpj,
         senha: senha,
       },
       { responseType: 'text' }
     );
   }
 
-  public loginVendedor(email: string, senha: string): Observable<string> {
+  public loginCliente(cpf: string, senha: string): Observable<string> {
     return this.http.post(
-      environment.apiUrl + '/vendedor/login',
+      environment.apiUrl + '/cliente/login',
       {
-        email: email,
+        cpf: cpf,
         senha: senha,
       },
       { responseType: 'text' }
