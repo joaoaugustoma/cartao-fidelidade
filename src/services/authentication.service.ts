@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AuthenticationClient} from "../auth/authentication.client";
+import {AuthenticationClient} from "../app/auth/authentication.client";
 import {Router} from "@angular/router";
 
 @Injectable({

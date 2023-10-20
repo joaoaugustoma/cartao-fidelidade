@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {LoginClienteComponent} from "./pages/login/login-cliente/login-cliente.component";
-import {AuthGuard} from "../helpers/auth.guard";
+import {AuthGuard} from "./helpers/auth.guard";
 import {LoginVendedorComponent} from "./pages/login/login-vendedor/login-vendedor.component";
 import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.component";
 import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component";

@@ -1,1 +1,41 @@
-<p>produtos works!</p>
+<div class="p-5 pr-10 w-auto p-4" xmlns="http://www.w3.org/1999/html">
+  <h2>Produtos</h2>
+  <h3>Filtrar</h3>
+  <mat-form-field class="mb-4">
+    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
+    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
+  </mat-form-field>
+
+  <div class="bg-white rounded-lg">
+    <table class="w-full" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th class="p-2" mat-header-cell *matHeaderCellDef > ID </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.id }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomeProduto">
+        <th class="p-2" mat-header-cell *matHeaderCellDef > Produto </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.nomeProduto }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="valor">
+        <th class="p-2" mat-header-cell *matHeaderCellDef > Valor </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.valor | currency: 'R$ ##,##'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomeLoja">
+        <th class="p-2" mat-header-cell *matHeaderCellDef > Loja </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.loja.nome }} </td>
+      </ng-container>
+
+      <tr class="bg-gray-100" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="bg-white" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+      </tr>
+    </table>
+
+    <!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->
+  </div>
+</div>

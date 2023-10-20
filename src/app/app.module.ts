@@ -10,7 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {TokenInterceptor} from "../helpers/token.interceptor";
+import {TokenInterceptor} from "./helpers/token.interceptor";
 import {LoginModule} from "./pages/login/login.module";
 import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.component";
 import { LojasComponent } from './pages/main-vendedor/lojas/lojas.component';

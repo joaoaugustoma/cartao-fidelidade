@@ -7,19 +7,19 @@
   </mat-form-field>
 
   <div class="bg-white rounded-lg">
-    <table class="w-full" mat-table [dataSource]="dataSource" matSort>
+    <table class="w-full" mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
-        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef > ID </th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.id }} </td>
       </ng-container>
 
       <ng-container matColumnDef="nomeLoja">
-        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef > Nome </th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.nomeLoja }}</td>
       </ng-container>
 
       <ng-container matColumnDef="cnpj">
-        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> CNPJ </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef > CNPJ </th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.cnpj | cnpjFormat}} </td>
       </ng-container>
 
@@ -31,6 +31,6 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>
+<!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->
   </div>
 </div>
