@@ -16,7 +16,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "../helpers/token.interceptor";
 import {LoginModule} from "./pages/login/login.module";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +35,7 @@ import {LoginModule} from "./pages/login/login.module";
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    LoginModule,
-    InputMaskModule
+    LoginModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

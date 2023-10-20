@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import { LoginVendedorComponent } from './login-vendedor/login-vendedor.component';
+import {LoginVendedorComponent} from './login-vendedor/login-vendedor.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {RouterLink, RouterLinkWithHref, RouterOutlet} from "@angular/router";
@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {LoginClienteComponent} from "./login-cliente/login-cliente.component";
 import {LoginClienteFormComponent} from "./login-cliente/login-cliente-form/login-cliente-form.component";
+import {NgxMaskDirective, NgxMaskPipe, provideNgxMask} from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import {LoginClienteFormComponent} from "./login-cliente/login-cliente-form/logi
     MatInputModule,
     MatButtonModule,
     NgOptimizedImage,
-    FormsModule
-  ]
+    FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
+  ], providers: [provideNgxMask()]
 })
 export class LoginModule { }
