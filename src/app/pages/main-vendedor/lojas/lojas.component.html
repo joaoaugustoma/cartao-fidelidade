@@ -1,25 +1,30 @@
-<div class="p-5 pr-10 w-auto p-4" xmlns="http://www.w3.org/1999/html">
+<div class="p-5 pr-10 w-auto" xmlns="http://www.w3.org/1999/html">
   <h2>Lojas</h2>
+
   <h3>Filtrar</h3>
-  <mat-form-field class="mb-4">
-    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
-    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
-  </mat-form-field>
+  <div class="flex justify-between">
+    <mat-form-field class="mb-4 w-96">
+      <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
+      <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="mb-4" (click)="criarLoja()">Criar</button>
+  </div>
 
   <div class="bg-white rounded-lg">
     <table class="w-full" mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
-        <th class="p-2" mat-header-cell *matHeaderCellDef > ID </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef> ID</th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.id }} </td>
       </ng-container>
 
       <ng-container matColumnDef="nomeLoja">
-        <th class="p-2" mat-header-cell *matHeaderCellDef > Nome </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef> Nome</th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.nomeLoja }}</td>
       </ng-container>
 
       <ng-container matColumnDef="cnpj">
-        <th class="p-2" mat-header-cell *matHeaderCellDef > CNPJ </th>
+        <th class="p-2" mat-header-cell *matHeaderCellDef> CNPJ</th>
         <td class="p-2" mat-cell *matCellDef="let row"> {{ row.cnpj | cnpjFormat}} </td>
       </ng-container>
 
@@ -31,6 +36,6 @@
       </tr>
     </table>
 
-<!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->
+    <!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->
   </div>
 </div>

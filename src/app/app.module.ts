@@ -26,6 +26,11 @@ import {NgChartsModule} from "ng2-charts";
 import {DonutChartComponent} from './pages/main-cliente/donut-chart/donut-chart.component';
 import {MatCardModule} from "@angular/material/card";
 import {BarChartComponent} from './pages/main-cliente/bar-chart/bar-chart.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
+import {LojasEditarComponent} from './pages/main-vendedor/lojas/lojas-editar/lojas-editar.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgxMaskDirective} from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -41,7 +46,8 @@ import {BarChartComponent} from './pages/main-cliente/bar-chart/bar-chart.compon
     DescontosComponent,
     CnpjFormatPipe,
     DonutChartComponent,
-    BarChartComponent
+    BarChartComponent,
+    LojasEditarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +64,10 @@ import {BarChartComponent} from './pages/main-cliente/bar-chart/bar-chart.compon
     BrowserModule,
     NgChartsModule,
     MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    NgxMaskDirective
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

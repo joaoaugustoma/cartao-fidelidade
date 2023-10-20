@@ -5,6 +5,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Loja} from "../../../model/Loja";
 import {LojasService} from "../../../../services/lojas.service";
 import {Observable} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {LojasEditarComponent} from "./lojas-editar/lojas-editar.component";
 
 @Component({
   selector: 'app-lojas',
@@ -18,7 +20,7 @@ export class LojasComponent implements AfterViewInit, OnInit {
   lojas : Loja[] = [];
 
 
-  constructor(private lojasService : LojasService) {
+  constructor(private lojasService : LojasService, private modalDialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -37,5 +39,12 @@ export class LojasComponent implements AfterViewInit, OnInit {
 
   filtrar(event: Event) {
 
+  }
+
+  criarLoja() {
+    this.modalDialog.open(LojasEditarComponent, {
+      width: '50%',
+      height: '50%',
+    });
   }
 }
