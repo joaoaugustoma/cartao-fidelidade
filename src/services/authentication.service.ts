@@ -16,13 +16,20 @@ export class AuthenticationService {
   public loginCliente(cpf: string, senha: string): void {
     this.authenticationClient.loginCliente(cpf, senha).subscribe((token) => {
       localStorage.setItem(this.tokenKey, token);
-      this.router.navigate(['/']);
+      this.router.navigate(['/cliente']);
+    });
+  }
+
+  public loginVendedor(email: string, senha: string): void {
+    this.authenticationClient.loginVendedor(email, senha).subscribe((token) => {
+      localStorage.setItem(this.tokenKey, token);
+      this.router.navigate(['/vendedor']);
     });
   }
 
   public logout() {
     localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/loginCliente']);
   }
 
   public isLoggedIn(): boolean {

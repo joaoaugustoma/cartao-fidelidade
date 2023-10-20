@@ -20,7 +20,7 @@ export class LoginVendedorFormComponent implements OnInit {
   }
 
   public login() {
-    this.authenticationService.loginCliente(
+    this.authenticationService.loginVendedor(
       this.loginForm.get('email')!.value,
       this.loginForm!.get('senha')!.value
     );

@@ -1,0 +1,32 @@
+<aside class="w-64 h-full fixed top-0 left-0 flex flex-col text-black text-1xl">
+    <div class="p-4">
+        <img src="./assets/logo.png" alt="Logo" class="w-24">
+    </div>
+    <nav class="flex-1 mt-6">
+        <ul class="space-y-2">
+            <li>
+                <a routerLink="pontos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/main/pontos' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">face</i>
+                    Meus Pontos
+                </a>
+            </li>
+            <li>
+                <a routerLink="perfil" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/main/perfil' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2 material-symbols-outlined ">person</i>
+                    Perfil
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="p-4">
+        <a routerLink="/login" (click) = sair() class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500">
+            <i class="material-icons text-indigo-500 h-5 w-5 mr-2">exit_to_app</i>
+            Sair
+        </a>
+    </div>
+</aside>
+
+<div class="ml-64">
+    <router-outlet></router-outlet>
+</div>

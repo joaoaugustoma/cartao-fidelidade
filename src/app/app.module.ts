@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from "@angular/cdk/layout";
-import {MainComponent} from './pages/main/main.component';
+import {MainClienteComponent} from './pages/main/main-cliente.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
@@ -19,8 +19,8 @@ import {LoginModule} from "./pages/login/login.module";
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    MainComponent,
+    MainClienteComponent,
+    MainClienteComponent,
     PerfilComponent,
     PontosComponent
   ],

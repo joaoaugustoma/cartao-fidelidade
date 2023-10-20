@@ -20,6 +20,17 @@ export class AuthenticationClient {
     );
   }
 
+  public loginVendedor(email: string, senha: string): Observable<string> {
+    return this.http.post(
+      environment.apiUrl + '/vendedor/login',
+      {
+        email: email,
+        senha: senha,
+      },
+      { responseType: 'text' }
+    );
+  }
+
   // public registerCliente(
   //   cpfCnpj: string,
   //   email: string,

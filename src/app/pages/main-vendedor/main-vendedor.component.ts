@@ -4,10 +4,10 @@ import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
+  templateUrl: './main-vendedor.component.html',
+  styleUrls: ['./main-vendedor.component.css'],
 })
-export class MainComponent implements OnInit{
+export class MainVendedorComponent implements OnInit{
 
   constructor( public router: Router, private authenticationService: AuthenticationService) {
   }
