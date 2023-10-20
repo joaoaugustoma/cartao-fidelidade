@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({
   selector: 'app-main',
@@ -8,11 +9,14 @@ import {Router} from "@angular/router";
 })
 export class MainComponent implements OnInit{
 
-  constructor( public router: Router) {
+  constructor( public router: Router, private authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
   }
 
 
+  sair() {
+    this.authenticationService.logout();
+  }
 }

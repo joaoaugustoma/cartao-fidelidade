@@ -7,35 +7,28 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from "./pages/login/login.module";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MainComponent} from './pages/main/main.component';
-import {LojasComponent} from './pages/main/pages/lojas/lojas.component';
-import {ProdutosComponent} from './pages/main/pages/produtos/produtos.component';
-import {ClientesComponent} from './pages/main/pages/clientes/clientes.component';
-import {DescontosComponent} from './pages/main/pages/descontos/descontos.component';
-import {PremiosComponent} from './pages/main/pages/premios/premios.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
-import {LoginComponent} from './pages/login/login.component';
-import {LoginFormComponent} from './pages/login/login-form/login-form.component';
-import { PerfilComponent } from './pages/main/pages/perfil/perfil.component';
+import {PerfilComponent} from './pages/main/perfil/perfil.component';
+import {PontosComponent} from './pages/main/pontos/pontos.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {TokenInterceptor} from "../helpers/token.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LojasComponent,
-    ProdutosComponent,
-    ClientesComponent,
-    DescontosComponent,
-    PremiosComponent,
     MainComponent,
-    PerfilComponent]
-  ,
+    PerfilComponent,
+    PontosComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LoginModule,
     LayoutModule,
     MatPaginatorModule,
@@ -44,7 +37,7 @@ import { PerfilComponent } from './pages/main/pages/perfil/perfil.component';
     MatSortModule,
     LoginModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

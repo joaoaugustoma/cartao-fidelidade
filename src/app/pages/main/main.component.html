@@ -2,41 +2,16 @@
     <div class="p-4">
         <img src="./assets/logo.png" alt="Logo" class="w-24">
     </div>
-
     <nav class="flex-1 mt-6">
         <ul class="space-y-2">
             <li>
-                <a routerLink="lojas" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/lojas' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
-                    Lojas
+                <a routerLink="pontos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/pontos' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">face</i>
+                    Meus Pontos
                 </a>
             </li>
             <li>
-                <a routerLink="produtos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/produtos' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">shopping_cart</i>
-                    Produtos
-                </a>
-            </li>
-            <li>
-                <a routerLink="clientes" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/clientes' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">people</i>
-                    Clientes
-                </a>
-            </li>
-            <li>
-                <a routerLink="descontos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/descontos' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">local_offer</i>
-                    Descontos
-                </a>
-            </li>
-            <li>
-                <a routerLink="premios" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/premios' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">emoji_events_outline</i>
-                    Prêmios
-                </a>
-            </li>
-            <li>
-                <a routerLink="premios" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/perfil' ? 'text-indigo-500' : ''}}">
+                <a routerLink="perfil" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/perfil' ? 'text-indigo-500' : ''}}">
                     <i class="material-icons text-indigo-500 h-5 w-5 mr-2 material-symbols-outlined ">person</i>
                     Perfil
                 </a>
@@ -45,7 +20,7 @@
     </nav>
 
     <div class="p-4">
-        <a routerLink="login" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500">
+        <a routerLink="/login" (click) = sair() class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500">
             <i class="material-icons text-indigo-500 h-5 w-5 mr-2">exit_to_app</i>
             Sair
         </a>

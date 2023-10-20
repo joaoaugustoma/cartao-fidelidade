@@ -1,23 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-
-import {LojasComponent} from "./pages/main/pages/lojas/lojas.component";
 import {LoginComponent} from "./pages/login/login.component";
-import {ProdutosComponent} from "./pages/main/pages/produtos/produtos.component";
-import {ClientesComponent} from "./pages/main/pages/clientes/clientes.component";
-import {DescontosComponent} from "./pages/main/pages/descontos/descontos.component";
-import {PremiosComponent} from "./pages/main/pages/premios/premios.component";
 import {MainComponent} from "./pages/main/main.component";
-import {PerfilComponent} from "./pages/main/pages/perfil/perfil.component";
+import {PerfilComponent} from "./pages/main/perfil/perfil.component";
+import {PontosComponent} from "./pages/main/pontos/pontos.component";
+import {AuthGuard} from "../helpers/auth.guard";
 
 const routes: Routes = [
-  { path: '', component: MainComponent, children: [
-      { path: '', component: LojasComponent},
-      { path: 'lojas', component: LojasComponent},
-      { path: 'produtos', component: ProdutosComponent},
-      { path: 'clientes', component: ClientesComponent},
-      { path: 'descontos', component: DescontosComponent},
-      { path: 'premios', component: PremiosComponent},
+  { path: '', component: MainComponent, canActivate: [AuthGuard], children: [
+      { path: '', component: PontosComponent},
+      { path: 'pontos', component: PontosComponent},
       { path: 'perfil', component: PerfilComponent}
     ]},
   { path: 'login', component: LoginComponent},

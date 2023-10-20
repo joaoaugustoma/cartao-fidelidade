@@ -1,23 +1,28 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationService} from "../../../../services/authentication.service";
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
+  public loginForm!: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private authenticationService: AuthenticationService) {}
 
-  login() {
-    // Implemente a lógica de autenticação aqui
-    // if (autenticacaoBemSucedida) {
-    this.router.navigate(['/home']).then(r => console.log(r));
-    // }
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      cpf: new FormControl('', Validators.required),
+      senha: new FormControl('', Validators.required),
+    });
   }
 
-  esqueceuSenha() {
-    // Implemente a lógica de recuperação de senha aqui
+  public login() {
+    this.authenticationService.loginCliente(
+      this.loginForm.get('cpf')!.value,
+      this.loginForm!.get('senha')!.value
+    );
   }
 }
