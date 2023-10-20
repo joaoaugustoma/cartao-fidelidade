@@ -5,15 +5,39 @@
     <nav class="flex-1 mt-6">
         <ul class="space-y-2">
             <li>
-                <a routerLink="pontos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/main/pontos' ? 'text-indigo-500' : ''}}">
-                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">face</i>
-                    Meus Pontos
+                <a routerLink="lojas" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/lojas' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
+                    Lojas
                 </a>
             </li>
             <li>
-                <a routerLink="perfil" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/main/perfil' ? 'text-indigo-500' : ''}}">
+                <a routerLink="produtos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/produtos' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
+                    Produtos
+                </a>
+            </li>
+            <li>
+                <a routerLink="clientes" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/clientes' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
+                    Clientes
+                </a>
+            </li>
+            <li>
+                <a routerLink="descontos" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/descontos' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
+                    Descontos
+                </a>
+            </li>
+            <li>
+                <a routerLink="premios" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/premios' ? 'text-indigo-500' : ''}}">
+                    <i class="material-icons text-indigo-500 h-5 w-5 mr-2">store</i>
+                    Prêmios
+                </a>
+            </li>
+            <li>
+                <a routerLink="perfil" class="flex items-center px-4 py-2 transition-colors hover:text-indigo-500 {{this.router.url == '/vendedor/perfil' ? 'text-indigo-500' : ''}}">
                     <i class="material-icons text-indigo-500 h-5 w-5 mr-2 material-symbols-outlined ">person</i>
-                    Perfil
+                    Meu Perfil
                 </a>
             </li>
         </ul>

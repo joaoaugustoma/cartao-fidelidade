@@ -15,14 +15,25 @@ import {PontosComponent} from './pages/main/pontos/pontos.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "../helpers/token.interceptor";
 import {LoginModule} from "./pages/login/login.module";
+import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.component";
+import { LojasComponent } from './pages/main-vendedor/lojas/lojas.component';
+import { ProdutosComponent } from './pages/main-vendedor/produtos/produtos.component';
+import { ClientesComponent } from './pages/main-vendedor/clientes/clientes.component';
+import { DescontosComponent } from './pages/main-vendedor/descontos/descontos.component';
+import { PremiosComponent } from './pages/main-vendedor/premios/premios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainClienteComponent,
-    MainClienteComponent,
+    MainVendedorComponent,
     PerfilComponent,
-    PontosComponent
+    PontosComponent,
+    LojasComponent,
+    ProdutosComponent,
+    ClientesComponent,
+    DescontosComponent,
+    PremiosComponent
   ],
   imports: [
     BrowserModule,
