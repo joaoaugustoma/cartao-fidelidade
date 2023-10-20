@@ -1,7 +1,7 @@
 <div class="w-full p-4">
   <mat-form-field class="mb-4">
-    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Razão Social</mat-label>
-    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Razão Social" #input>
+    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
+    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
   </mat-form-field>
 
   <div class="bg-white shadow-md rounded-lg">
@@ -12,8 +12,8 @@
       </ng-container>
 
       <ng-container matColumnDef="razaoSocial">
-        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> Razão Social </th>
-        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.razaoSocial }}% </td>
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.nomeLoja }} </td>
       </ng-container>
 
       <ng-container matColumnDef="cnpj">

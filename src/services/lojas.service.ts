@@ -12,6 +12,6 @@ export class LojasService {
   constructor(private http: HttpClient) { }
 
   listar():Observable<Loja[]> {
-    return this.http.get<Loja[]>(environment.apiUrl + 'loja');
+    return this.http.get<Loja[]>(environment.apiUrl + '/loja');
   }
 }

@@ -31,7 +31,6 @@ export class LojasComponent implements AfterViewInit, OnInit {
     this.lojasService.listar().subscribe(lojas => {
       this.lojas = lojas;
     });
-
     this.dataSource = new MatTableDataSource(this.lojas);
   }
 
