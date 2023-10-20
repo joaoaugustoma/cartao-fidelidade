@@ -12,8 +12,10 @@ import {Observable} from "rxjs";
   styleUrls: ['./lojas.component.css']
 })
 export class LojasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = ['id', 'nomeLoja', 'cnpj'];
   dataSource!: MatTableDataSource<Loja>;
+
+  cnpjMask = "00.000.000/0000-00";
 
   lojas : Loja[] = [];
 
@@ -30,8 +32,8 @@ export class LojasComponent implements AfterViewInit, OnInit {
   private listar() {
     this.lojasService.listar().subscribe(lojas => {
       this.lojas = lojas;
+      this.dataSource = new MatTableDataSource(this.lojas);
     });
-    this.dataSource = new MatTableDataSource(this.lojas);
   }
 
   ngAfterViewInit() {

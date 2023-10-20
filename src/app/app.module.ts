@@ -22,6 +22,7 @@ import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component"
 import {PontosComponent} from "./pages/main-cliente/pontos/pontos.component";
 import {PerfilVendedorComponent} from "./pages/main-vendedor/perfil/perfil-vendedor.component";
 import {PerfilClienteComponent} from "./pages/main-cliente/perfil/perfil-cliente.component";
+import { CnpjFormatPipe } from './pipe/cnpj-format.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {PerfilClienteComponent} from "./pages/main-cliente/perfil/perfil-cliente
     ProdutosComponent,
     ClientesComponent,
     DescontosComponent,
-    PremiosComponent
+    PremiosComponent,
+    CnpjFormatPipe
   ],
   imports: [
     BrowserModule,
