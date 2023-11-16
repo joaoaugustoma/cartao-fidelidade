@@ -31,6 +31,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {LojasEditarComponent} from './pages/main-vendedor/lojas/lojas-editar/lojas-editar.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskDirective} from "ngx-mask";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -67,9 +68,10 @@ import {NgxMaskDirective} from "ngx-mask";
     MatButtonModule,
     MatDialogModule,
     ReactiveFormsModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    ToastrModule.forRoot()
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
