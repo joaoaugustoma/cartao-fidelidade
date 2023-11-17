@@ -69,6 +69,11 @@ export class ClientesEditarComponent implements OnInit {
       this.toastr.error('Senha é obrigatória.', 'Erro');
       this.isOk = false;
     }
+    if (moment(this.clienteForm.value.dataNascimento, 'DDMMYYYY').format('YYYY-MM-DD') == 'Invalid date') {
+      this.toastr.error('Data de Nascimento inválida.', 'Erro');
+      this.isOk = false;
+    }
+
     return this.isOk;
   }
 

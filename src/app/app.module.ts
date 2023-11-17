@@ -35,6 +35,7 @@ import {ToastrModule} from "ngx-toastr";
 import {MatIconModule} from "@angular/material/icon";
 import { ClientesEditarComponent } from './pages/main-vendedor/clientes/clientes-editar/clientes-editar.component';
 import { TelefoneFormatPipe } from './pipe/telefone-format.pipe';
+import { DescontosEditarComponent } from './pages/main-vendedor/descontos/descontos-editar/descontos-editar.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { TelefoneFormatPipe } from './pipe/telefone-format.pipe';
     DonutChartComponent,
     BarChartComponent,
     LojasEditarComponent,
-    ClientesEditarComponent
+    ClientesEditarComponent,
+    DescontosEditarComponent
   ],
     imports: [
         BrowserModule,
