@@ -34,6 +34,18 @@
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
       </tr>
+
+      <ng-container matColumnDef="acoes">
+        <th class="p-2" mat-header-cell *matHeaderCellDef> Ações</th>
+        <td class="p-2" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="editarLoja(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deletarLoja(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
     </table>
 
     <!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->

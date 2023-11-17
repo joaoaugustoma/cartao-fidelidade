@@ -1,22 +1,22 @@
 <div class="p-5 grid grid-cols-2 gap-4">
-  <h2 class="col-span-2 text-2xl font-bold mb-4">Criar Loja</h2>
+  <h2 class="col-span-2 text-2xl font-bold mb-4">Criar Cliente</h2>
 
-  <form [formGroup]="lojaForm" class="grid grid-cols-2 gap-4 col-span-2">
+  <form [formGroup]="clienteForm" class="grid grid-cols-2 gap-4 col-span-2">
     <div class="col-span-1">
       <mat-form-field class="mb-4">
-        <mat-label class="block">Nome</mat-label>
+        <mat-label class="block">CPF</mat-label>
         <input type="text" required
                class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-               matInput formControlName="nomeLoja">
+               matInput formControlName="cpf" [mask]="'000.000.000-00'">
       </mat-form-field>
     </div>
 
     <div class="col-span-1">
       <mat-form-field class="mb-4">
-        <mat-label class="block">CNPJ</mat-label>
+        <mat-label class="block">Nome</mat-label>
         <input type="text" required
                class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-               matInput formControlName="cnpj" [mask]="'00.000.000/0000-00'">
+               matInput formControlName="nome">
       </mat-form-field>
     </div>
 
@@ -26,6 +26,24 @@
         <input type="text" required
                class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                matInput formControlName="endereco">
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Data de Nascimento</mat-label>
+        <input type="text" required
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="dataNascimento" [mask]="'00/00/0000'">
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Telefone</mat-label>
+        <input type="text" required
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="telefone" [mask]="'(00) 00000-0000'">
       </mat-form-field>
     </div>
 

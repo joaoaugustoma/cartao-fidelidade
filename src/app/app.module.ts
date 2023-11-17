@@ -32,6 +32,9 @@ import {LojasEditarComponent} from './pages/main-vendedor/lojas/lojas-editar/loj
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskDirective} from "ngx-mask";
 import {ToastrModule} from "ngx-toastr";
+import {MatIconModule} from "@angular/material/icon";
+import { ClientesEditarComponent } from './pages/main-vendedor/clientes/clientes-editar/clientes-editar.component';
+import { TelefoneFormatPipe } from './pipe/telefone-format.pipe';
 
 @NgModule({
   declarations: [
@@ -46,31 +49,34 @@ import {ToastrModule} from "ngx-toastr";
     ClientesComponent,
     DescontosComponent,
     CnpjFormatPipe,
+    TelefoneFormatPipe,
     DonutChartComponent,
     BarChartComponent,
-    LojasEditarComponent
+    LojasEditarComponent,
+    ClientesEditarComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    LoginModule,
-    LayoutModule,
-    MatPaginatorModule,
-    MatInputModule,
-    MatTableModule,
-    MatSortModule,
-    LoginModule,
-    BrowserModule,
-    NgChartsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    NgxMaskDirective,
-    ToastrModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        LoginModule,
+        LayoutModule,
+        MatPaginatorModule,
+        MatInputModule,
+        MatTableModule,
+        MatSortModule,
+        LoginModule,
+        BrowserModule,
+        NgChartsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        NgxMaskDirective,
+        ToastrModule.forRoot(),
+        MatIconModule
+    ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })

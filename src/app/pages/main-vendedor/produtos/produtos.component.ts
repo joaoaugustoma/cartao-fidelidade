@@ -9,7 +9,7 @@ import {ProdutoService} from "../../../../services/produto.service";
   styleUrls: ['./produtos.component.css']
 })
 export class ProdutosComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['id', 'nomeProduto', 'valor', 'nomeLoja'];
+  displayedColumns: string[] = ['id', 'nomeProduto', 'valor', 'nomeLoja', 'acoes'];
   dataSource!: MatTableDataSource<Produto>;
 
   produtos : Produto[] = [];
@@ -32,7 +32,16 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
   }
 
-  filtrar(event: Event) {
+
+  editar(row: Produto) {
+
+  }
+
+  deletar(row: Produto) {
+
+  }
+
+  filtrar(nomeLoja: string) {
 
   }
 }

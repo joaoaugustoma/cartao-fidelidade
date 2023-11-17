@@ -3,8 +3,11 @@
   <h3>Filtrar</h3>
   <mat-form-field class="mb-4">
     <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
-    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
+    <input class="w-full p-2 border rounded-md" matInput placeholder="Nome da Loja" #input>
   </mat-form-field>
+  <button mat-icon-button color="primary" (click)="filtrar(input.value)">
+    <mat-icon>search</mat-icon>
+  </button>
 
   <div class="bg-white rounded-lg">
     <table class="w-full" mat-table [dataSource]="dataSource">
@@ -34,6 +37,18 @@
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
       </tr>
+
+      <ng-container matColumnDef="acoes">
+        <th class="p-2" mat-header-cell *matHeaderCellDef> Ações</th>
+        <td class="p-2" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="editar(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deletar(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
     </table>
 
     <!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->

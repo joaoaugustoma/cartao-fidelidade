@@ -13,12 +13,11 @@ import {LojasEditarComponent} from "./lojas-editar/lojas-editar.component";
   templateUrl: './lojas.component.html',
   styleUrls: ['./lojas.component.css']
 })
-export class LojasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['id', 'nomeLoja', 'cnpj'];
+export class LojasComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'nomeLoja', 'cnpj', 'acoes'];
   dataSource!: MatTableDataSource<Loja>;
 
   lojas : Loja[] = [];
-
 
   constructor(private lojasService : LojasService, private modalDialog: MatDialog) {
   }
@@ -34,9 +33,6 @@ export class LojasComponent implements AfterViewInit, OnInit {
     });
   }
 
-  ngAfterViewInit() {
-  }
-
   filtrar(event: Event) {
 
   }
@@ -45,6 +41,26 @@ export class LojasComponent implements AfterViewInit, OnInit {
     this.modalDialog.open(LojasEditarComponent, {
       width: '50%',
       height: '50%',
+    }).afterClosed().subscribe(() => {
+      this.listar();
     });
+  }
+
+  editarLoja(row: Loja) {
+    // this.lojasService.findById(row.id).subscribe(loja => {
+    //   this.modalDialog.open(LojasEditarComponent, {
+    //     width: '50%',
+    //     height: '50%',
+    //     data: loja
+    //   }).afterClosed().subscribe(() => {
+    //     this.listar();
+    //   });
+    // }
+  }
+
+  deletarLoja(row: Loja) {
+    // this.lojasService.deletar(row.id).subscribe(() => {
+    //   this.listar();
+    // });
   }
 }

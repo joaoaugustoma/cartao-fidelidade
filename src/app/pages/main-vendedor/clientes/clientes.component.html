@@ -1,10 +1,15 @@
 <div class="p-5 pr-10 w-auto p-4" xmlns="http://www.w3.org/1999/html">
   <h2>Clientes</h2>
   <h3>Filtrar</h3>
-  <mat-form-field class="mb-4">
-    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
-    <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
-  </mat-form-field>
+
+  <div class="flex justify-between">
+    <mat-form-field class="mb-4">
+      <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
+      <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="mb-4" (click)="criarCliente()">Criar</button>
+  </div>
 
   <div class="bg-white rounded-lg">
     <table class="w-full" mat-table [dataSource]="dataSource">
@@ -35,15 +40,23 @@
 
       <ng-container matColumnDef="telefone">
         <th class="p-2" mat-header-cell *matHeaderCellDef > Telefone </th>
-        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.telefone }}</td>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.telefone | telefoneFormat}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th class="p-2" mat-header-cell *matHeaderCellDef> Ações</th>
+        <td class="p-2" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="editar(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deletar(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr class="bg-gray-100" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="bg-white" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
-      </tr>
     </table>
 
     <!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página"></mat-paginator>-->
