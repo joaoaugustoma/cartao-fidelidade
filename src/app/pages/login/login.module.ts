@@ -14,13 +14,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {LoginClienteComponent} from "./login-cliente/login-cliente.component";
 import {LoginClienteFormComponent} from "./login-cliente/login-cliente-form/login-cliente-form.component";
 import {NgxMaskDirective, NgxMaskPipe, provideNgxMask} from "ngx-mask";
+import { RegistroVendedorComponent } from './login-vendedor/registro-vendedor/registro-vendedor.component';
 
 @NgModule({
   declarations: [
     LoginVendedorComponent,
     LoginVendedorFormComponent,
     LoginClienteComponent,
-    LoginClienteFormComponent
+    LoginClienteFormComponent,
+    RegistroVendedorComponent
   ],
   exports: [
     LoginVendedorComponent,

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../../../../services/authentication.service";
 import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {RegistroVendedorComponent} from "../registro-vendedor/registro-vendedor.component";
 
 @Component({
   selector: 'app-login-vendedor-form',
@@ -12,7 +14,7 @@ export class LoginVendedorFormComponent implements OnInit {
   public loginForm!: FormGroup;
   public isOK: boolean = true;
 
-  constructor(private authenticationService: AuthenticationService, private toastr: ToastrService) {
+  constructor(private authenticationService: AuthenticationService, private toastr: ToastrService, private modalDialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -41,5 +43,14 @@ export class LoginVendedorFormComponent implements OnInit {
         this.loginForm!.get('senha')!.value
       );
     }
+  }
+
+  modalRegistroVendedor() {
+    this.modalDialog.open(RegistroVendedorComponent, {
+      width: '50%',
+      height: '50%',
+    }).afterClosed().subscribe(() => {
+      this.ngOnInit();
+    });
   }
 }

@@ -12,6 +12,7 @@ import {LojasComponent} from "./pages/main-vendedor/lojas/lojas.component";
 import {ProdutosComponent} from "./pages/main-vendedor/produtos/produtos.component";
 import {ClientesComponent} from "./pages/main-vendedor/clientes/clientes.component";
 import {DescontosComponent} from "./pages/main-vendedor/descontos/descontos.component";
+import {RegistroVendedorComponent} from "./pages/login/login-vendedor/registro-vendedor/registro-vendedor.component";
 
 const routes: Routes = [
   { path: 'loginCliente', component: LoginClienteComponent},

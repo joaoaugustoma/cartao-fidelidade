@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AuthenticationClient} from "../app/auth/authentication.client";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
@@ -9,11 +9,7 @@ import {ToastrService} from "ngx-toastr";
 export class AuthenticationService {
   private tokenKey = 'token';
 
-  constructor(
-    private authenticationClient: AuthenticationClient,
-    private router: Router,
-    private toastr: ToastrService
-  ) {}
+  constructor(private authenticationClient: AuthenticationClient, private router: Router, private toastr: ToastrService) {}
 
   public loginCliente(cpf: string, senha: string): void {
     this.authenticationClient.loginCliente(cpf, senha).subscribe((token) => {

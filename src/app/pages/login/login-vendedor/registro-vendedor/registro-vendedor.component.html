@@ -1,0 +1,31 @@
+<div class="p-5">
+  <h2>Registro de Vendedor</h2>
+
+  <form action="#" method="POST" [formGroup]="registroForm">
+    <div class="mb-4">
+      <label for="cnpj" class="block text-gray-700 text-sm font-bold mb-2">CNPJ</label>
+      <input type="text" id="cnpj" name="cnpj" formControlName="cnpj" required
+             class="w-full p-2 border rounded-md" placeholder="CNPJ" [mask] = "'00.000.000/0000-00'">
+    </div>
+
+    <div class="mb-4">
+      <label for="nomeLoja" class="block text-gray-700 text-sm font-bold mb-2">Nome da Loja</label>
+      <input type="text" id="nomeLoja" name="nomeLoja" formControlName="nomeLoja" required
+             class="w-full p-2 border rounded-md" placeholder="Nome do Vendedor">
+    </div>
+
+    <div class="mb-4">
+      <label for="endereco" class="block text-gray-700 text-sm font-bold mb-2">Endereço</label>
+      <input type="text" id="endereco" name="endereco" formControlName="endereco" required
+             class="w-full p-2 border rounded-md" placeholder="Endereço">
+    </div>
+
+    <div class="mb-4">
+      <label for="senha" class="block text-gray-700 text-sm font-bold mb-2">Senha</label>
+      <input type="password" id="senha" name="senha" formControlName="senha" required
+             class="w-full p-2 border rounded-md" placeholder="Senha">
+    </div>
+
+    <button type="submit" mat-raised-button color="primary" (click)="registrarLoja()">Registrar</button>
+  </form>
+</div>
