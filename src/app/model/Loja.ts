@@ -4,4 +4,5 @@ export class Loja {
     cnpj!: string;
     endereco!: string;
     senha!: string;
+    ativa!: boolean;
 }
