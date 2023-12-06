@@ -36,6 +36,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { ClientesEditarComponent } from './pages/main-vendedor/clientes/clientes-editar/clientes-editar.component';
 import { TelefoneFormatPipe } from './pipe/telefone-format.pipe';
 import { DescontosEditarComponent } from './pages/main-vendedor/descontos/descontos-editar/descontos-editar.component';
+import { ProdutosEditarComponent } from './pages/main-vendedor/produtos/produtos-editar/produtos-editar.component';
+import { LojaProdutoComponent } from './pages/main-vendedor/produtos/loja-produto/loja-produto.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DescontosEditarComponent } from './pages/main-vendedor/descontos/descon
     BarChartComponent,
     LojasEditarComponent,
     ClientesEditarComponent,
-    DescontosEditarComponent
+    DescontosEditarComponent,
+    ProdutosEditarComponent,
+    LojaProdutoComponent
   ],
     imports: [
         BrowserModule,

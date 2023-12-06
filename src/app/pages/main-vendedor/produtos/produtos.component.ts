@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Produto} from "../../../model/Produto";
 import {ProdutoService} from "../../../../services/produto.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ProdutosEditarComponent} from "./produtos-editar/produtos-editar.component";
 
 @Component({
   selector: 'app-produtos',
@@ -14,7 +16,7 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
 
   produtos : Produto[] = [];
 
-  constructor(private produtoService : ProdutoService) {
+  constructor(private produtoService : ProdutoService, private modalDialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -41,7 +43,16 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
 
   }
 
-  filtrar(nomeLoja: string) {
+  filtrar($event: KeyboardEvent) {
 
+  }
+
+  criar() {
+    this.modalDialog.open(ProdutosEditarComponent, {
+      width: '50%',
+      height: '50%',
+    }).afterClosed().subscribe(() => {
+      this.listar();
+    });
   }
 }

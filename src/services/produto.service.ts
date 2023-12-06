@@ -12,6 +12,20 @@ export class ProdutoService {
   constructor(private http: HttpClient) { }
 
   listar():Observable<Produto[]> {
-    return this.http.get<Produto[]>(environment.apiUrl + '/produto');
+    return this.http.get<Produto[]>(environment.apiUrl + '/produto/listar');
+  }
+
+  salvar(produto: Produto): Observable<string>  {
+    return this.http.post(
+      environment.apiUrl + '/produto',
+      {
+        nomeProduto : produto.nomeProduto,
+        valor : produto.valor,
+        descricao : produto.descricao,
+        loja : produto.loja
+      },
+      { responseType: 'text' }
+    );
+
   }
 }

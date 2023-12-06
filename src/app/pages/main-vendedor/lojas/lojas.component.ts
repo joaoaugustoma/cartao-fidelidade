@@ -1,12 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Loja} from "../../../model/Loja";
-import {LojasService} from "../../../../services/lojas.service";
-import {Observable} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {LojasEditarComponent} from "./lojas-editar/lojas-editar.component";
+import {LojasService} from "./lojas.service";
 
 @Component({
   selector: 'app-lojas',

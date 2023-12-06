@@ -26,4 +26,16 @@ export class LojasService {
       { responseType: 'text' }
     );
   }
+  listar():Observable<Loja[]> {
+    return this.http.get<Loja[]>(environment.apiUrl + '/loja');
+  }
+
+  deletar(id: number) {
+    return this.http.delete(environment.apiUrl + '/loja/' + id);
+  }
+
+  findById(id: number) {
+    // return this.http.post<Loja>(environment.apiUrl + '/loja/', id);
+
+  }
 }

@@ -1,0 +1,49 @@
+<div class="p-5 grid grid-cols-2 gap-4">
+  <h2 class="col-span-2 text-2xl font-bold mb-4">Incluir Produto</h2>
+
+  <form [formGroup]="produtoForm" class="grid grid-cols-2 gap-4 col-span-2">
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Nome do Produto</mat-label>
+        <input type="text" required
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="nomeProduto">
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Valor</mat-label>
+        <input type="text" required
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="valor">
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Descrição</mat-label>
+        <input type="text" required
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="descricao">
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-1">
+      <mat-form-field class="mb-4">
+        <mat-label class="block">Loja</mat-label>
+        <input type="text" readonly
+               class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+               matInput formControlName="loja" [(ngModel)]="selectedLoja.nomeLoja">
+        <button matSuffix mat-icon-button (click)="selecionaLoja()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+  </form>
+
+  <button class="col-span-2 w-40 py-2 px-4 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700" (click)="salvar()">
+    Salvar
+  </button>
+</div>

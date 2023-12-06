@@ -1,13 +1,14 @@
 <div class="p-5 pr-10 w-auto" xmlns="http://www.w3.org/1999/html">
   <h2>Produtos</h2>
   <h3>Filtrar</h3>
-  <mat-form-field class="mb-4">
-    <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
-    <input class="w-full p-2 border rounded-md" matInput placeholder="Nome da Loja" #input>
-  </mat-form-field>
-  <button mat-icon-button color="primary" (click)="filtrar(input.value)">
-    <mat-icon>search</mat-icon>
-  </button>
+  <div class="flex justify-between">
+    <mat-form-field class="mb-4">
+      <mat-label class="block text-gray-700 text-sm font-bold mb-2">Nome</mat-label>
+      <input class="w-full p-2 border rounded-md" matInput (keyup)="filtrar($event)" placeholder="Nome" #input>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="mb-4" (click)="criar()">Criar</button>
+  </div>
 
   <div class="bg-white rounded-lg">
     <table class="w-full" mat-table [dataSource]="dataSource">
@@ -23,12 +24,12 @@
 
       <ng-container matColumnDef="valor">
         <th class="p-2" mat-header-cell *matHeaderCellDef > Valor </th>
-        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.valor | currency: 'R$ ##,##'}} </td>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.valor | currency: 'R$'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="nomeLoja">
         <th class="p-2" mat-header-cell *matHeaderCellDef > Loja </th>
-        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.loja.nome }} </td>
+        <td class="p-2" mat-cell *matCellDef="let row"> {{ row.loja.nomeLoja }} </td>
       </ng-container>
 
       <tr class="bg-gray-100" mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -14,7 +14,6 @@ export class ClientesService {
   ) {}
 
   salvar(cliente: Cliente): Observable<string> {
-    console.log(cliente);
     return this.http.post(
       environment.apiUrl + '/cliente',
       {
