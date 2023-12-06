@@ -11,8 +11,9 @@ import {Observable} from "rxjs";
 export class LojasService {
 
   constructor(
-    private http: HttpClient,
-  ) {}
+    private http: HttpClient, private toastr: ToastrService
+  ) {
+  }
 
   salvar(loja: Loja): Observable<string> {
     return this.http.post(
@@ -23,19 +24,37 @@ export class LojasService {
         endereco: loja.endereco,
         senha: loja.senha,
       },
-      { responseType: 'text' }
+      {responseType: 'text'}
     );
   }
-  listar():Observable<Loja[]> {
+
+  listar(): Observable<Loja[]> {
     return this.http.get<Loja[]>(environment.apiUrl + '/loja');
   }
 
   deletar(id: number) {
-    return this.http.delete(environment.apiUrl + '/loja/' + id);
+    return this.http.delete(environment.apiUrl + '/loja/' + id).subscribe(() => {
+      this.toastr.success('Loja deletada com sucesso!');
+    }, error => {
+      this.toastr.error('Falha ao deletar loja. Verifique se a loja possui produtos cadastrados.');
+    });
   }
 
-  findById(id: number) {
-    // return this.http.post<Loja>(environment.apiUrl + '/loja/', id);
+  findById(id: number) : Observable<Loja> {
+    return this.http.get<Loja>(environment.apiUrl + '/loja/' + id);
+  }
 
+  editar(loja: Loja) {
+    return this.http.put(
+      environment.apiUrl + '/loja',
+      {
+        id: loja.id,
+        nomeLoja: loja.nomeLoja,
+        cnpj: loja.cnpj,
+        endereco: loja.endereco,
+        senha: loja.senha,
+      },
+      {responseType: 'text'}
+    );
   }
 }

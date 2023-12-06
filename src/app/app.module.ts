@@ -36,6 +36,7 @@ import {TelefoneFormatPipe} from './pipe/telefone-format.pipe';
 import {ProdutosEditarComponent} from './pages/main-vendedor/produtos/produtos-editar/produtos-editar.component';
 import {LojaProdutoComponent} from './pages/main-vendedor/produtos/loja-produto/loja-produto.component';
 import {CommonModule} from "@angular/common";
+import {ConfirmacaoModalComponent} from "./pages/confirmacao-modal-component/confirmacao-modal.component";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -55,7 +56,8 @@ import {CommonModule} from "@angular/common";
     LojasEditarComponent,
     ClientesEditarComponent,
     ProdutosEditarComponent,
-    LojaProdutoComponent
+    LojaProdutoComponent,
+    ConfirmacaoModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LojasService} from "../lojas.service";
 import {ToastrService} from "ngx-toastr";
 import {Loja} from "../../../../model/Loja";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-lojas-editar',
@@ -15,45 +15,54 @@ export class LojasEditarComponent implements OnInit {
   private isOk: boolean = true;
   private loja: Loja = new Loja();
 
-  constructor(private lojasService: LojasService, private toastr: ToastrService, public dialogRef: MatDialogRef<any>){
+  constructor(private lojasService: LojasService, private toastr: ToastrService, public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: Loja) {
   }
 
   ngOnInit(): void {
+    this.loja = this.data;
     this.lojaForm = new FormGroup({
-      nomeLoja: new FormControl('', [Validators.required]),
-      cnpj: new FormControl('', [Validators.required]),
-      endereco: new FormControl('', [Validators.required]),
-      senha: new FormControl('', Validators.required),
+      nomeLoja: new FormControl(this.loja.nomeLoja, [Validators.required]),
+      cnpj: new FormControl(this.loja.cnpj, [Validators.required]),
+      endereco: new FormControl(this.loja.endereco, [Validators.required]),
+      senha: new FormControl(this.loja.senha, Validators.required),
     });
   }
 
   salvar() {
-    if(this.prepararSalvar())
+    if (this.prepararSalvar())
       this.preparaObjetoSalvar();
-    console.log(this.loja)
-    this.lojasService.salvar(this.loja).subscribe((response) => {
-      this.toastr.success('Loja salva com sucesso!', 'Sucesso');
-      this.dialogRef.close();
-    }, (error) => {
-      this.toastr.error('Falha ao salvar loja.', 'Erro');
-    });
+    if (this.loja.id != null) {
+      this.lojasService.editar(this.loja).subscribe((response) => {
+        this.toastr.success('Loja salva com sucesso!', 'Sucesso');
+        this.dialogRef.close();
+      }, (error) => {
+        this.toastr.error('Falha ao editar loja.', 'Erro');
+      });
+    } else {
+      this.lojasService.salvar(this.loja).subscribe((response) => {
+        this.toastr.success('Loja salva com sucesso!', 'Sucesso');
+        this.dialogRef.close();
+      }, (error) => {
+        this.toastr.error('Falha ao salvar loja.', 'Erro');
+      });
+    }
   }
 
-  prepararSalvar() : boolean {
+  prepararSalvar(): boolean {
     console.log(this.lojaForm.value)
-    if(this.lojaForm.value.nomeLoja == '') {
+    if (this.lojaForm.value.nomeLoja == '') {
       this.toastr.error('Nome da loja é obrigatório.', 'Erro');
       this.isOk = false;
     }
-    if(this.lojaForm.value.cnpj == '') {
+    if (this.lojaForm.value.cnpj == '') {
       this.toastr.error('CNPJ é obrigatório.', 'Erro');
       this.isOk = false;
     }
-    if(this.lojaForm.value.endereco == '') {
+    if (this.lojaForm.value.endereco == '') {
       this.toastr.error('Endereço é obrigatório.', 'Erro');
       this.isOk = false;
     }
-    if(this.lojaForm.value.senha == '') {
+    if (this.lojaForm.value.senha == '') {
       this.toastr.error('Senha é obrigatória.', 'Erro');
       this.isOk = false;
     }

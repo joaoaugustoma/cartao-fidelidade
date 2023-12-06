@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Loja} from "../../../model/Loja";
 import {MatDialog} from "@angular/material/dialog";
 import {LojasEditarComponent} from "./lojas-editar/lojas-editar.component";
 import {LojasService} from "./lojas.service";
+import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 
 @Component({
   selector: 'app-lojas',
@@ -14,9 +15,9 @@ export class LojasComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nomeLoja', 'cnpj', 'acoes'];
   dataSource!: MatTableDataSource<Loja>;
 
-  lojas : Loja[] = [];
+  lojas: Loja[] = [];
 
-  constructor(private lojasService : LojasService, private modalDialog: MatDialog) {
+  constructor(private lojasService: LojasService, private modalDialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -44,20 +45,24 @@ export class LojasComponent implements OnInit {
   }
 
   editarLoja(row: Loja) {
-    // this.lojasService.findById(row.id).subscribe(loja => {
-    //   this.modalDialog.open(LojasEditarComponent, {
-    //     width: '50%',
-    //     height: '50%',
-    //     data: loja
-    //   }).afterClosed().subscribe(() => {
-    //     this.listar();
-    //   });
-    // }
+    this.lojasService.findById(row.id).subscribe(loja => {
+      this.modalDialog.open(LojasEditarComponent, {
+        width: '50%',
+        height: '50%',
+        data: loja
+      }).afterClosed().subscribe(() => {
+        this.listar();
+      });
+    });
   }
 
   deletarLoja(row: Loja) {
-    // this.lojasService.deletar(row.id).subscribe(() => {
-    //   this.listar();
-    // });
+    this.modalDialog.open(ConfirmacaoModalComponent).componentInstance.confirmado.subscribe((confirmado: boolean) => {
+      if (confirmado) {
+        this.lojasService.deletar(row.id);
+        this.listar();
+      }
+      this.modalDialog.closeAll();
+    });
   }
 }
