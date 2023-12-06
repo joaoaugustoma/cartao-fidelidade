@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Produto} from "../../../../model/Produto";
 import {ToastrService} from "ngx-toastr";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ProdutoService} from "../../../../../services/produto.service";
 import {Loja} from "../../../../model/Loja";
 import {LojaProdutoComponent} from "../loja-produto/loja-produto.component";
@@ -23,15 +23,17 @@ export class ProdutosEditarComponent implements OnInit {
     private produtosService: ProdutoService,
     private toastr: ToastrService,
     public dialogRef: MatDialogRef<any>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: Produto = new Produto()
   ) {}
 
   ngOnInit(): void {
+    this.produto = this.data;
     this.produtoForm = new FormGroup({
-      nomeProduto: new FormControl('', [Validators.required]),
-      valor: new FormControl('', [Validators.required]),
-      descricao: new FormControl('', [Validators.required]),
-      loja: new FormControl('', [Validators.required]),
+      nomeProduto: new FormControl(this.produto.nomeProduto, [Validators.required]),
+      valor: new FormControl(this.produto.valor, [Validators.required]),
+      descricao: new FormControl(this.produto.descricao, [Validators.required]),
+      loja: new FormControl(this.produto.loja, [Validators.required]),
     });
   }
 

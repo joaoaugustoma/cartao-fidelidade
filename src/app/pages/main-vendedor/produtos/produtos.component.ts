@@ -4,6 +4,7 @@ import {Produto} from "../../../model/Produto";
 import {ProdutoService} from "../../../../services/produto.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ProdutosEditarComponent} from "./produtos-editar/produtos-editar.component";
+import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 
 @Component({
   selector: 'app-produtos',
@@ -36,11 +37,25 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
 
 
   editar(row: Produto) {
-
+    this.produtoService.findById(row.id).subscribe(produto => {
+      this.modalDialog.open(ProdutosEditarComponent, {
+        width: '50%',
+        height: '50%',
+        data: produto
+      }).afterClosed().subscribe(() => {
+        this.listar();
+      });
+    });
   }
 
   deletar(row: Produto) {
-
+    this.modalDialog.open(ConfirmacaoModalComponent).componentInstance.confirmado.subscribe((confirmado: boolean) => {
+      if (confirmado) {
+        this.produtoService.deletar(row.id);
+        this.listar();
+      }
+      this.modalDialog.closeAll();
+    });
   }
 
   filtrar($event: KeyboardEvent) {
