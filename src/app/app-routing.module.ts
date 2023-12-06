@@ -7,7 +7,6 @@ import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.compone
 import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component";
 import {PontosComponent} from "./pages/main-cliente/pontos/pontos.component";
 import {PerfilClienteComponent} from "./pages/main-cliente/perfil/perfil-cliente.component";
-import {PerfilVendedorComponent} from "./pages/main-vendedor/perfil/perfil-vendedor.component";
 import {LojasComponent} from "./pages/main-vendedor/lojas/lojas.component";
 import {ProdutosComponent} from "./pages/main-vendedor/produtos/produtos.component";
 import {ClientesComponent} from "./pages/main-vendedor/clientes/clientes.component";
@@ -27,7 +26,6 @@ const routes: Routes = [
       { path: 'lojas', component: LojasComponent},
       { path: 'produtos', component: ProdutosComponent},
       { path: 'clientes', component: ClientesComponent},
-      { path: 'perfil', component: PerfilVendedorComponent},
       { path: 'carteira', component: CarteirasComponent}
     ]
   },

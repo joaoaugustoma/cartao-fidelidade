@@ -18,7 +18,6 @@ import {ProdutosComponent} from './pages/main-vendedor/produtos/produtos.compone
 import {ClientesComponent} from './pages/main-vendedor/clientes/clientes.component';
 import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component";
 import {PontosComponent} from "./pages/main-cliente/pontos/pontos.component";
-import {PerfilVendedorComponent} from "./pages/main-vendedor/perfil/perfil-vendedor.component";
 import {PerfilClienteComponent} from "./pages/main-cliente/perfil/perfil-cliente.component";
 import {CnpjFormatPipe} from './pipe/cnpj-format.pipe';
 import {NgChartsModule} from "ng2-charts";
@@ -44,7 +43,6 @@ import {CommonModule} from "@angular/common";
     AppComponent,
     MainClienteComponent,
     MainVendedorComponent,
-    PerfilVendedorComponent,
     PerfilClienteComponent,
     PontosComponent,
     LojasComponent,
