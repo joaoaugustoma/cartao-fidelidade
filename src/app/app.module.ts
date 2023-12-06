@@ -16,7 +16,6 @@ import {MainVendedorComponent} from "./pages/main-vendedor/main-vendedor.compone
 import {LojasComponent} from './pages/main-vendedor/lojas/lojas.component';
 import {ProdutosComponent} from './pages/main-vendedor/produtos/produtos.component';
 import {ClientesComponent} from './pages/main-vendedor/clientes/clientes.component';
-import {DescontosComponent} from './pages/main-vendedor/descontos/descontos.component';
 import {MainClienteComponent} from "./pages/main-cliente/main-cliente.component";
 import {PontosComponent} from "./pages/main-cliente/pontos/pontos.component";
 import {PerfilVendedorComponent} from "./pages/main-vendedor/perfil/perfil-vendedor.component";
@@ -33,13 +32,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskDirective} from "ngx-mask";
 import {ToastrModule} from "ngx-toastr";
 import {MatIconModule} from "@angular/material/icon";
-import { ClientesEditarComponent } from './pages/main-vendedor/clientes/clientes-editar/clientes-editar.component';
-import { TelefoneFormatPipe } from './pipe/telefone-format.pipe';
-import { DescontosEditarComponent } from './pages/main-vendedor/descontos/descontos-editar/descontos-editar.component';
-import { ProdutosEditarComponent } from './pages/main-vendedor/produtos/produtos-editar/produtos-editar.component';
-import { LojaProdutoComponent } from './pages/main-vendedor/produtos/loja-produto/loja-produto.component';
+import {ClientesEditarComponent} from './pages/main-vendedor/clientes/clientes-editar/clientes-editar.component';
+import {TelefoneFormatPipe} from './pipe/telefone-format.pipe';
+import {ProdutosEditarComponent} from './pages/main-vendedor/produtos/produtos-editar/produtos-editar.component';
+import {LojaProdutoComponent} from './pages/main-vendedor/produtos/loja-produto/loja-produto.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     MainClienteComponent,
@@ -50,41 +50,39 @@ import { LojaProdutoComponent } from './pages/main-vendedor/produtos/loja-produt
     LojasComponent,
     ProdutosComponent,
     ClientesComponent,
-    DescontosComponent,
     CnpjFormatPipe,
     TelefoneFormatPipe,
     DonutChartComponent,
     BarChartComponent,
     LojasEditarComponent,
     ClientesEditarComponent,
-    DescontosEditarComponent,
     ProdutosEditarComponent,
     LojaProdutoComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        LoginModule,
-        LayoutModule,
-        MatPaginatorModule,
-        MatInputModule,
-        MatTableModule,
-        MatSortModule,
-        LoginModule,
-        BrowserModule,
-        NgChartsModule,
-        MatCardModule,
-        MatButtonModule,
-        MatDialogModule,
-        ReactiveFormsModule,
-        NgxMaskDirective,
-        ToastrModule.forRoot(),
-        MatIconModule
-    ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
-  bootstrap: [AppComponent]
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    LoginModule,
+    LayoutModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    LoginModule,
+    BrowserModule,
+    NgChartsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    ToastrModule.forRoot(),
+    MatIconModule,
+    CommonModule
+  ],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}]
 })
 export class AppModule {
 }

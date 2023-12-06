@@ -14,9 +14,9 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['id', 'nomeProduto', 'valor', 'nomeLoja', 'acoes'];
   dataSource!: MatTableDataSource<Produto>;
 
-  produtos : Produto[] = [];
+  produtos: Produto[] = [];
 
-  constructor(private produtoService : ProdutoService, private modalDialog: MatDialog) {
+  constructor(private produtoService: ProdutoService, private modalDialog: MatDialog) {
   }
 
   ngOnInit(): void {
