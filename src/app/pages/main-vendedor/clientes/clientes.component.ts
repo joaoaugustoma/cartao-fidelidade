@@ -6,6 +6,7 @@ import {Produto} from "../../../model/Produto";
 import {LojasEditarComponent} from "../lojas/lojas-editar/lojas-editar.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ClientesEditarComponent} from "./clientes-editar/clientes-editar.component";
+import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 
 @Component({
   selector: 'app-clientes',
@@ -40,11 +41,25 @@ export class ClientesComponent implements AfterViewInit, OnInit {
   }
 
   editar(row: Produto) {
-
+    this.clientesService.findById(row.id).subscribe(loja => {
+      this.modalDialog.open(ClientesEditarComponent, {
+        width: '50%',
+        height: '50%',
+        data: loja
+      }).afterClosed().subscribe(() => {
+        this.listar();
+      });
+    });
   }
 
   deletar(row: Produto) {
-
+    this.modalDialog.open(ConfirmacaoModalComponent).componentInstance.confirmado.subscribe((confirmado: boolean) => {
+      if (confirmado) {
+        this.clientesService.deletar(row.id);
+        this.listar();
+      }
+      this.modalDialog.closeAll();
+    });
   }
 
   criarCliente() {
