@@ -14,11 +14,12 @@ export class CarteirasService {
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   listar():Observable<Carteira[]> {
-    return this.http.get<Carteira[]>(environment.apiUrl + '/carteira/listar');
+    console.log(this.http.get<Carteira[]>(environment.apiUrl + '/carteira'));
+    return this.http.get<Carteira[]>(environment.apiUrl + '/carteira');
   }
 
   salvar(carteira: Carteira): Observable<string>  {
-    console.log(carteira
+    console.log(carteira)
     return this.http.post(
       environment.apiUrl + '/carteira',
       {
