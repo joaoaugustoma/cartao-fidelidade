@@ -52,7 +52,6 @@ export class CarteirasEditarComponent implements OnInit {
   }
 
   private prepararSalvar() {
-
     if (this.selectedLoja == null) {
       this.toastr.error('Loja é obrigatória.', 'Erro');
       this.isOk = false;
