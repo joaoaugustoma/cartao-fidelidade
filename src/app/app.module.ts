@@ -37,6 +37,9 @@ import {ProdutosEditarComponent} from './pages/main-vendedor/produtos/produtos-e
 import {LojaProdutoComponent} from './pages/main-vendedor/produtos/loja-produto/loja-produto.component';
 import {CommonModule} from "@angular/common";
 import {ConfirmacaoModalComponent} from "./pages/confirmacao-modal-component/confirmacao-modal.component";
+import {CarteirasComponent} from "./pages/main-vendedor/carteiras/carteiras.component";
+import {CarteirasEditarComponent} from "./pages/main-vendedor/carteiras/carteiras-editar/carteiras-editar.component";
+import {ClienteCarteiraComponent} from './pages/main-vendedor/carteiras/cliente-carteira/cliente-carteira.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -57,7 +60,10 @@ import {ConfirmacaoModalComponent} from "./pages/confirmacao-modal-component/con
     ClientesEditarComponent,
     ProdutosEditarComponent,
     LojaProdutoComponent,
-    ConfirmacaoModalComponent
+    ConfirmacaoModalComponent,
+    CarteirasComponent,
+    CarteirasEditarComponent,
+    ClienteCarteiraComponent
   ],
   imports: [
     BrowserModule,

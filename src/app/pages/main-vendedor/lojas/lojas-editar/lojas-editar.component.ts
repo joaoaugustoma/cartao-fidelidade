@@ -19,7 +19,7 @@ export class LojasEditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loja = this.data;
+    this.loja = this.data || new Loja();
     this.lojaForm = new FormGroup({
       nomeLoja: new FormControl(this.loja.nomeLoja, [Validators.required]),
       cnpj: new FormControl(this.loja.cnpj, [Validators.required]),

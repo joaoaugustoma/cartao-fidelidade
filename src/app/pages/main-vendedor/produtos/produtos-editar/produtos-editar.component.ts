@@ -28,7 +28,7 @@ export class ProdutosEditarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.produto = this.data;
+    this.produto = this.data || new Produto();
     this.produtoForm = new FormGroup({
       nomeProduto: new FormControl(this.produto.nomeProduto, [Validators.required]),
       valor: new FormControl(this.produto.valor, [Validators.required]),
@@ -50,7 +50,6 @@ export class ProdutosEditarComponent implements OnInit {
   }
 
   prepararSalvar(): boolean {
-    console.log(this.produtoForm.value);
     if (this.produtoForm.value.nomeProduto == '') {
       this.toastr.error('Nome do Produto é obrigatório.', 'Erro');
       this.isOk = false;
@@ -75,9 +74,7 @@ export class ProdutosEditarComponent implements OnInit {
     this.produto.nomeProduto = this.produtoForm.value.nomeProduto;
     this.produto.valor = this.produtoForm.value.valor;
     this.produto.descricao = this.produtoForm.value.descricao;
-    console.log(this.selectedLoja);
     this.produto.loja = this.selectedLoja;
-    console.log(this.produto);
   }
 
   selecionaLoja() {

@@ -22,7 +22,7 @@ export class ClientesEditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cliente = this.data;
+    this.cliente = this.data || new Cliente();
     this.clienteForm = new FormGroup({
       cpf: new FormControl(this.cliente.cpf, [Validators.required]),
       nome: new FormControl(this.cliente.nome, [Validators.required]),
