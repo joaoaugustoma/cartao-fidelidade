@@ -32,7 +32,6 @@ export class RegistroVendedorComponent implements OnInit{
   registrarLoja() {
     if(this.verificaCampos()) {
       this.preparaOjetoRegistro();
-      console.log(this.loja);
       this.authenticationClient.registroLoja(this.loja).subscribe((response) => {
         this.toastr.success('Loja salva com sucesso!', 'Sucesso');
         // Fecha o modal após o registro bem-sucedido

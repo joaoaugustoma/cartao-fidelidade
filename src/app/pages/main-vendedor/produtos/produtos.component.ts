@@ -26,7 +26,6 @@ export class ProdutosComponent implements AfterViewInit, OnInit {
 
   private listar() {
     this.produtoService.listar().subscribe(produtos => {
-      console.log(produtos)
       this.produtos = produtos;
       this.dataSource = new MatTableDataSource(this.produtos);
     });

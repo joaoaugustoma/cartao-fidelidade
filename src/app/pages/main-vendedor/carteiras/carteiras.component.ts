@@ -5,6 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Carteira} from "../../../model/Carteira";
 import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 import {CarteirasEditarComponent} from "./carteiras-editar/carteiras-editar.component";
+import {AddPontosCarteiraComponent} from "./add-pontos-carteira/add-pontos-carteira.component";
 
 @Component({
   selector: 'app-carteiras',
@@ -70,4 +71,13 @@ export class CarteirasComponent implements OnInit {
     });
   }
 
+  addPontos(row: Carteira) {
+    this.modalDialog.open(AddPontosCarteiraComponent, {
+      width: '50%',
+      height: '20%',
+      data: row
+    }).afterClosed().subscribe(() => {
+      this.listar();
+    });
+  }
 }

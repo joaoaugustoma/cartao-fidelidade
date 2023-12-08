@@ -40,6 +40,7 @@ import {ConfirmacaoModalComponent} from "./pages/confirmacao-modal-component/con
 import {CarteirasComponent} from "./pages/main-vendedor/carteiras/carteiras.component";
 import {CarteirasEditarComponent} from "./pages/main-vendedor/carteiras/carteiras-editar/carteiras-editar.component";
 import {ClienteCarteiraComponent} from './pages/main-vendedor/carteiras/cliente-carteira/cliente-carteira.component';
+import { AddPontosCarteiraComponent } from './pages/main-vendedor/carteiras/add-pontos-carteira/add-pontos-carteira.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -63,7 +64,8 @@ import {ClienteCarteiraComponent} from './pages/main-vendedor/carteiras/cliente-
     ConfirmacaoModalComponent,
     CarteirasComponent,
     CarteirasEditarComponent,
-    ClienteCarteiraComponent
+    ClienteCarteiraComponent,
+    AddPontosCarteiraComponent
   ],
   imports: [
     BrowserModule,

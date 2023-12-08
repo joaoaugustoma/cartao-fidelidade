@@ -1,0 +1,14 @@
+<div class="p-5 pr-10 w-auto">
+  <h2>Adicionar Pontos</h2>
+  <div class="flex justify-between">
+    <form [formGroup]="adicionarPontosForm">
+      <mat-form-field class="mb-4">
+        <mat-label class="block text-gray-700 text-sm font-bold mb-2">Pontos para Adicionar</mat-label>
+        <input class="w-full p-2 border rounded-md" matInput formControlName="pontosParaAdicionar"
+               placeholder="Quantidade de Pontos">
+      </mat-form-field>
+    </form>
+
+    <button mat-raised-button color="primary" class="mb-4" (click)="adicionarPontos()">Adicionar Pontos</button>
+  </div>
+</div>

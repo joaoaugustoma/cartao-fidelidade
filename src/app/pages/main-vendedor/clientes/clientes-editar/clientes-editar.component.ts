@@ -36,7 +36,6 @@ export class ClientesEditarComponent implements OnInit {
   salvar() {
     if (this.prepararSalvar())
       this.preparaObjetoSalvar();
-    console.log(this.cliente);
     this.clientesService.salvar(this.cliente).subscribe((response) => {
       this.toastr.success('Cliente salvo com sucesso!', 'Sucesso');
       this.dialogRef.close();
@@ -46,7 +45,6 @@ export class ClientesEditarComponent implements OnInit {
   }
 
   prepararSalvar(): boolean {
-    console.log(this.clienteForm.value);
     if (this.clienteForm.value.cpf == '') {
       this.toastr.error('CPF é obrigatório.', 'Erro');
       this.isOk = false;

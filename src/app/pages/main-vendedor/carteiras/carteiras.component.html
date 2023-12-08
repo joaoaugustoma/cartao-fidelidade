@@ -42,6 +42,9 @@
       <ng-container matColumnDef="acoes">
         <th class="p-2" mat-header-cell *matHeaderCellDef> Ações</th>
         <td class="p-2" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="addPontos(row)">
+            <mat-icon>add</mat-icon>
+          </button>
           <button mat-icon-button color="primary" (click)="editar(row)">
             <mat-icon>edit</mat-icon>
           </button>

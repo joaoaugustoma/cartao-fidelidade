@@ -49,7 +49,6 @@ export class LojasEditarComponent implements OnInit {
   }
 
   prepararSalvar(): boolean {
-    console.log(this.lojaForm.value)
     if (this.lojaForm.value.nomeLoja == '') {
       this.toastr.error('Nome da loja é obrigatório.', 'Erro');
       this.isOk = false;

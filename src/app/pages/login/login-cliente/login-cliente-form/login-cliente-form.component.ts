@@ -34,7 +34,6 @@ export class LoginClienteFormComponent implements OnInit {
   }
 
   public login() {
-    console.log(this.isOK);
     if(this.verificaCampos()) {
       this.authenticationService.loginCliente(
         this.loginForm.get('cpf')!.value,

@@ -11,23 +11,22 @@ import {ToastrService} from "ngx-toastr";
 })
 export class CarteirasService {
 
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) {
+  }
 
-  listar():Observable<Carteira[]> {
-    console.log(this.http.get<Carteira[]>(environment.apiUrl + '/carteira'));
+  listar(): Observable<Carteira[]> {
     return this.http.get<Carteira[]>(environment.apiUrl + '/carteira');
   }
 
-  salvar(carteira: Carteira): Observable<string>  {
-    console.log(carteira)
+  salvar(carteira: Carteira): Observable<string> {
     return this.http.post(
       environment.apiUrl + '/carteira',
       {
-        loja : carteira.loja,
-        cliente : carteira.cliente,
-        quantidadePontos : carteira.quantidadePontos,
+        loja: carteira.loja,
+        cliente: carteira.cliente,
+        quantidadePontos: carteira.quantidadePontos,
       },
-      { responseType: 'text' }
+      {responseType: 'text'}
     );
 
   }
@@ -42,5 +41,16 @@ export class CarteirasService {
 
   findById(id: number) {
     return this.http.get<Loja>(environment.apiUrl + '/carteira/' + id);
+  }
+
+  adicionarPontos(id: number, pontosParaAdicionar: number) {
+    return this.http.put(environment.apiUrl + '/carteira/' + id + '/adicionar-pontos/' + pontosParaAdicionar, null).subscribe(
+      () => {
+        this.toastr.success('Pontos adicionados com sucesso!', 'Sucesso');
+      },
+      (error) => {
+        this.toastr.error('Falha ao adicionar pontos à carteira.', 'Erro');
+      });
+
   }
 }

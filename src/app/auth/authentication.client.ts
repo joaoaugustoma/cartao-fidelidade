@@ -48,7 +48,6 @@ export class AuthenticationClient {
   //   );
   // }
   public registroLoja(loja: Loja) {
-    console.log(loja);
     return this.http.post(
       environment.apiUrl + '/loja',
       {
