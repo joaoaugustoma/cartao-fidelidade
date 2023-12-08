@@ -31,11 +31,16 @@ export class CarteirasEditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data)
+    if(this.data.loja !== null) {
+      console.log("entrou");
+      this.selectedLoja = this.data.loja;
+    }
     this.carteira = this.data || new Carteira();
     this.carteiraForm = new FormGroup({
       qtdPontos: new FormControl(this.carteira.quantidadePontos, [Validators.required]),
       cliente: new FormControl(this.carteira.cliente, [Validators.required]),
-      loja: new FormControl(this.carteira.loja, [Validators.required]),
+      loja: new FormControl(this.selectedLoja, [Validators.required]),
     });
   }
 

@@ -36,10 +36,6 @@ export class CarteirasComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
-  }
-
-
   editar(row: Carteira) {
     this.carteiraService.findById(row.id).subscribe(carteira => {
       this.modalDialog.open(CarteirasEditarComponent, {
