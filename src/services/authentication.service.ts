@@ -23,7 +23,7 @@ export class AuthenticationService {
 
   public loginVendedor(cnpj: string, senha: string): void {
     this.authenticationClient.loginVendedor(cnpj, senha).subscribe((token) => {
-      this.authenticationClient.saveVendedor(cnpj);
+      this.authenticationClient.saveCnpjVendedor(cnpj);
       localStorage.setItem(this.tokenKey, token);
       this.router.navigate(['/vendedor']);
       this.toastr.success('Login efetuado com sucesso!', 'Sucesso');
@@ -35,7 +35,7 @@ export class AuthenticationService {
 
   public logout() {
     localStorage.removeItem(this.tokenKey);
-    this.authenticationClient.removeVendedor();
+    this.authenticationClient.removeCnpjVendedor();
     this.router.navigate(['/loginCliente']);
     this.toastr.success('Logout efetuado com sucesso!');
   }

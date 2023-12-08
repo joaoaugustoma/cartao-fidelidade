@@ -6,6 +6,9 @@ import {Carteira} from "../../../model/Carteira";
 import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 import {CarteirasEditarComponent} from "./carteiras-editar/carteiras-editar.component";
 import {AddPontosCarteiraComponent} from "./add-pontos-carteira/add-pontos-carteira.component";
+import {LojasService} from "../lojas/lojas.service";
+import {AuthenticationClient} from "../../../auth/authentication.client";
+import {Loja} from "../../../model/Loja";
 
 @Component({
   selector: 'app-carteiras',
@@ -15,10 +18,11 @@ import {AddPontosCarteiraComponent} from "./add-pontos-carteira/add-pontos-carte
 export class CarteirasComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nomeLoja', 'nomeCliente', 'qtdPontos', 'acoes'];
   dataSource!: MatTableDataSource<Carteira>;
+  carteira: Carteira = new Carteira();
 
   carteiras: Carteira[] = [];
 
-  constructor(private carteiraService: CarteirasService, private modalDialog: MatDialog) {
+  constructor(private carteiraService: CarteirasService, private lojaService: LojasService, private authenticationClient: AuthenticationClient, private modalDialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -63,9 +67,11 @@ export class CarteirasComponent implements OnInit {
   }
 
   criar() {
+    this.preparaObjetoCriar();
     this.modalDialog.open(CarteirasEditarComponent, {
       width: '50%',
       height: '50%',
+      data: this.carteira
     }).afterClosed().subscribe(() => {
       this.listar();
     });
@@ -79,5 +85,14 @@ export class CarteirasComponent implements OnInit {
     }).afterClosed().subscribe(() => {
       this.listar();
     });
+  }
+
+  preparaObjetoCriar() {
+    this.lojaService.findByCnpj(this.authenticationClient.getCnpjVendedor())
+      .subscribe(
+        (loja: Loja) => {
+          this.carteira.loja = loja;
+        }
+      );
   }
 }

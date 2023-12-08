@@ -57,4 +57,8 @@ export class LojasService {
       {responseType: 'text'}
     );
   }
+
+  findByCnpj(cnpj: string) : Observable<Loja> {
+    return this.http.get<Loja>(environment.apiUrl + '/loja/' + cnpj);
+  }
 }

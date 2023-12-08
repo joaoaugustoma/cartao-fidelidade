@@ -21,12 +21,17 @@ export class AuthenticationClient {
     );
   }
 
-  public saveVendedor(cnpj: String) {
+  public saveCnpjVendedor(cnpj: String) {
     localStorage.setItem('cnpjVendedor', JSON.stringify(cnpj));
   }
 
-  public removeVendedor() {
+  public removeCnpjVendedor() {
     localStorage.removeItem('cnpjVendedor');
+  }
+
+  getCnpjVendedor(): string {
+    const cnpj = localStorage.getItem('cnpjVendedor');
+    return cnpj !== null ? cnpj : "";
   }
 
   public loginCliente(cpf: string, senha: string): Observable<string> {
@@ -68,4 +73,6 @@ export class AuthenticationClient {
     );
 
   }
+
+
 }
