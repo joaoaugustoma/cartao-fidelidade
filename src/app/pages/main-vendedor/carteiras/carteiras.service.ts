@@ -44,13 +44,16 @@ export class CarteirasService {
   }
 
   adicionarPontos(id: number, pontosParaAdicionar: number) {
-    return this.http.put(environment.apiUrl + '/carteira/' + id + '/adicionar-pontos/' + pontosParaAdicionar, null).subscribe(
+    return this.http.put(environment.apiUrl + '/carteira/' + id, pontosParaAdicionar, {
+      headers: {'Content-Type': 'application/json'},
+      responseType: 'text'
+    }).subscribe(
       () => {
         this.toastr.success('Pontos adicionados com sucesso!', 'Sucesso');
       },
       (error) => {
         this.toastr.error('Falha ao adicionar pontos à carteira.', 'Erro');
-      });
-
+      }
+    );
   }
 }

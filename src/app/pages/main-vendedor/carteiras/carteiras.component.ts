@@ -36,18 +36,6 @@ export class CarteirasComponent implements OnInit {
     });
   }
 
-  editar(row: Carteira) {
-    this.carteiraService.findById(row.id).subscribe(carteira => {
-      this.modalDialog.open(CarteirasEditarComponent, {
-        width: '50%',
-        height: '50%',
-        data: carteira
-      }).afterClosed().subscribe(() => {
-        this.listar();
-      });
-    });
-  }
-
   deletar(row: Carteira) {
     this.modalDialog.open(ConfirmacaoModalComponent).componentInstance.confirmado.subscribe((confirmado: boolean) => {
       if (confirmado) {
@@ -64,13 +52,15 @@ export class CarteirasComponent implements OnInit {
 
   criar() {
     this.preparaObjetoCriar();
-    this.modalDialog.open(CarteirasEditarComponent, {
-      width: '50%',
-      height: '50%',
-      data: this.carteira
-    }).afterClosed().subscribe(() => {
-      this.listar();
-    });
+    setTimeout(() => {
+      this.modalDialog.open(CarteirasEditarComponent, {
+        width: '50%',
+        height: '50%',
+        data: this.carteira
+      }).afterClosed().subscribe(() => {
+        this.listar();
+      });
+    }, 100);
   }
 
   addPontos(row: Carteira) {
