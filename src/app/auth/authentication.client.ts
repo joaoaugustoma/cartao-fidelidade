@@ -21,6 +21,14 @@ export class AuthenticationClient {
     );
   }
 
+  public saveVendedor(cnpj: String) {
+    localStorage.setItem('cnpjVendedor', JSON.stringify(cnpj));
+  }
+
+  public removeVendedor() {
+    localStorage.removeItem('cnpjVendedor');
+  }
+
   public loginCliente(cpf: string, senha: string): Observable<string> {
     return this.http.post(
       environment.apiUrl + '/cliente/login',
