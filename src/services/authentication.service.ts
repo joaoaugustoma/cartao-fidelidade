@@ -15,6 +15,7 @@ export class AuthenticationService {
     this.authenticationClient.loginCliente(cpf, senha).subscribe((token) => {
       localStorage.setItem(this.tokenKey, token);
       this.router.navigate(['/cliente']);
+      this.authenticationClient.saveCpfCliente(cpf);
       this.toastr.success('Login efetuado com sucesso!', 'Sucesso');
     }, (error) => {
       this.toastr.error('Falha ao efetuar o login. Verifique suas credenciais.', 'Erro');
@@ -36,6 +37,7 @@ export class AuthenticationService {
   public logout() {
     localStorage.removeItem(this.tokenKey);
     this.authenticationClient.removeCnpjVendedor();
+    this.authenticationClient.removeCpfCliente();
     this.router.navigate(['/loginCliente']);
     this.toastr.success('Logout efetuado com sucesso!');
   }

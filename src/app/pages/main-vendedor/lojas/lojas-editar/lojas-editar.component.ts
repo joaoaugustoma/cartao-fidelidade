@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {LojasService} from "../lojas.service";
+import {LojasService} from "../../../../../services/lojas.service";
 import {ToastrService} from "ngx-toastr";
 import {Loja} from "../../../../model/Loja";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";

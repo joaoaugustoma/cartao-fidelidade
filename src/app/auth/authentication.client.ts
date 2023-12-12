@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 import {environment} from "../environment/environment";
 import {Loja} from "../model/Loja";
 
@@ -8,7 +8,8 @@ import {Loja} from "../model/Loja";
   providedIn: 'root',
 })
 export class AuthenticationClient {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public loginVendedor(cnpj: string, senha: string): Observable<string> {
     return this.http.post(
@@ -17,7 +18,7 @@ export class AuthenticationClient {
         cnpj: cnpj,
         senha: senha,
       },
-      { responseType: 'text' }
+      {responseType: 'text'}
     );
   }
 
@@ -34,6 +35,19 @@ export class AuthenticationClient {
     return cnpj !== null ? cnpj : "";
   }
 
+  public saveCpfCliente(cnpj: String) {
+    localStorage.setItem('cpfCliente', JSON.stringify(cnpj));
+  }
+
+  removeCpfCliente() {
+    localStorage.removeItem('cpfCliente');
+  }
+
+  getCpfCliente(): string {
+    const cnpj = localStorage.getItem('cpfCliente');
+    return cnpj !== null ? cnpj : "";
+  }
+
   public loginCliente(cpf: string, senha: string): Observable<string> {
     return this.http.post(
       environment.apiUrl + '/cliente/login',
@@ -41,25 +55,10 @@ export class AuthenticationClient {
         cpf: cpf,
         senha: senha,
       },
-      { responseType: 'text' }
+      {responseType: 'text'}
     );
   }
 
-  // public registerCliente(
-  //   cpfCnpj: string,
-  //   email: string,
-  //   senha: string
-  // ): Observable<string> {
-  //   return this.http.post(
-  //     environment.apiUrl + '/user/register',
-  //     {
-  //       cpfCnpj: cpfCnpj,
-  //       email: email,
-  //       senha: senha,
-  //     },
-  //     { responseType: 'text' }
-  //   );
-  // }
   public registroLoja(loja: Loja) {
     return this.http.post(
       environment.apiUrl + '/loja',
@@ -69,10 +68,8 @@ export class AuthenticationClient {
         senha: loja.senha,
         endereco: loja.endereco,
       },
-      { responseType: 'text' }
+      {responseType: 'text'}
     );
 
   }
-
-
 }

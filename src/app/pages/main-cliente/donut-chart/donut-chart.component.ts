@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import {Component, Input, OnInit} from '@angular/core';
+import {Chart} from 'chart.js';
+import {PontosService} from "../../../../services/pontos.service";
+import {Carteira} from "../../../model/Carteira";
 
 @Component({
   selector: 'app-donut-chart',
@@ -9,17 +11,38 @@ import { Chart } from 'chart.js';
 export class DonutChartComponent implements OnInit {
   chart: any;
 
-  nomeLoja: string = 'Loja 1';
-  pontosLoja: number = 100;
+  @Input() carteirasCliente: Carteira[] = [];
+
+  nomeLoja: string = '';
+  pontosMax: number = 0;
+
+
+  constructor(private pontosService: PontosService) {
+  }
+
 
   ngOnInit() {
+    setTimeout(() => {
+      this.getMaisPontos();
+      this.criarChart();
+    }, 100);
+  }
+
+  private getMaisPontos() {
+    this.carteirasCliente.forEach(carteira => {
+      this.pontosMax = carteira.quantidadePontos > this.pontosMax ? carteira.quantidadePontos : this.pontosMax;
+      this.nomeLoja = carteira.loja.nomeLoja;
+    })
+  }
+
+  private criarChart() {
     this.chart = new Chart('doughnut', {
       type: 'doughnut',
       data: {
-        labels: ['Data1', 'Data2'],
+        labels: ['Data1'],
         datasets: [
           {
-            data: [0, 100],
+            data: [this.pontosMax],
             backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 0.1)'],
           },
         ],

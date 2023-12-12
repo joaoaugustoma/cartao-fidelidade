@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {Loja} from "../../../../model/Loja";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {LojasService} from "../../lojas/lojas.service";
+import {LojasService} from "../../../../../services/lojas.service";
 
 @Component({
   selector: 'app-loja-produto',

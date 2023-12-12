@@ -23,7 +23,6 @@ import {CnpjFormatPipe} from './pipe/cnpj-format.pipe';
 import {NgChartsModule} from "ng2-charts";
 import {DonutChartComponent} from './pages/main-cliente/donut-chart/donut-chart.component';
 import {MatCardModule} from "@angular/material/card";
-import {BarChartComponent} from './pages/main-cliente/bar-chart/bar-chart.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import {LojasEditarComponent} from './pages/main-vendedor/lojas/lojas-editar/lojas-editar.component';
@@ -40,7 +39,9 @@ import {ConfirmacaoModalComponent} from "./pages/confirmacao-modal-component/con
 import {CarteirasComponent} from "./pages/main-vendedor/carteiras/carteiras.component";
 import {CarteirasEditarComponent} from "./pages/main-vendedor/carteiras/carteiras-editar/carteiras-editar.component";
 import {ClienteCarteiraComponent} from './pages/main-vendedor/carteiras/cliente-carteira/cliente-carteira.component';
-import { AddPontosCarteiraComponent } from './pages/main-vendedor/carteiras/add-pontos-carteira/add-pontos-carteira.component';
+import {
+  AddPontosCarteiraComponent
+} from './pages/main-vendedor/carteiras/add-pontos-carteira/add-pontos-carteira.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -56,7 +57,6 @@ import { AddPontosCarteiraComponent } from './pages/main-vendedor/carteiras/add-
     CnpjFormatPipe,
     TelefoneFormatPipe,
     DonutChartComponent,
-    BarChartComponent,
     LojasEditarComponent,
     ClientesEditarComponent,
     ProdutosEditarComponent,

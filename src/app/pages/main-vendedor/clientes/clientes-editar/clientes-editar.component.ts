@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Cliente} from "../../../../model/Cliente";
-import {ClientesService} from "../clientes.service";
+import {ClientesService} from "../../../../../services/clientes.service";
 import * as moment from "moment";
 import {Loja} from "../../../../model/Loja";
 

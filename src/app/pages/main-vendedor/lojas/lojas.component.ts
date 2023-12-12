@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Loja} from "../../../model/Loja";
 import {MatDialog} from "@angular/material/dialog";
 import {LojasEditarComponent} from "./lojas-editar/lojas-editar.component";
-import {LojasService} from "./lojas.service";
+import {LojasService} from "../../../../services/lojas.service";
 import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 
 @Component({

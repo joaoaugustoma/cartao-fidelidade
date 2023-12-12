@@ -6,7 +6,7 @@ import {Carteira} from "../../../model/Carteira";
 import {ConfirmacaoModalComponent} from "../../confirmacao-modal-component/confirmacao-modal.component";
 import {CarteirasEditarComponent} from "./carteiras-editar/carteiras-editar.component";
 import {AddPontosCarteiraComponent} from "./add-pontos-carteira/add-pontos-carteira.component";
-import {LojasService} from "../lojas/lojas.service";
+import {LojasService} from "../../../../services/lojas.service";
 import {AuthenticationClient} from "../../../auth/authentication.client";
 import {Loja} from "../../../model/Loja";
 
