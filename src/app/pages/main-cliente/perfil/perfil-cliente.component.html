@@ -1,1 +1,37 @@
-<p>perfil works!</p>
+<form [formGroup]="clienteForm"  class="pt-10 pr-10 w-2/3">
+  <h2 class="text-2xl font-semibold mb-4">Meu Perfil</h2>
+
+  <div class="mb-4">
+    <label for="nome" class="block text-gray-600 text-sm font-medium mb-2">Nome:</label>
+    <input type="text" id="nome" formControlName="nome" class="w-full border p-2 rounded">
+  </div>
+
+  <div class="mb-4">
+    <label for="cpf" class="block text-gray-600 text-sm font-medium mb-2">CPF:</label>
+    <input type="text" id="cpf" formControlName="cpf" class="w-full border p-2 rounded">
+  </div>
+
+  <div class="mb-4">
+    <label for="endereco" class="block text-gray-600 text-sm font-medium mb-2">Endereço:</label>
+    <input type="text" id="endereco" formControlName="endereco" class="w-full border p-2 rounded">
+  </div>
+
+  <div class="mb-4">
+    <mat-label class="block">Data de Nascimento</mat-label>
+    <input type="text" required
+           class="w-full rounded-md border py-2 text-gray-900 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+           matInput formControlName="dataNascimento" [mask]="'00/00/0000'">
+  </div>
+
+  <div class="mb-4">
+    <label for="telefone" class="block text-gray-600 text-sm font-medium mb-2">Telefone:</label>
+    <input type="text" id="telefone" formControlName="telefone" class="w-full border p-2 rounded" [mask]="'(00) 00000-0000'">
+  </div>
+
+  <div class="mb-4">
+    <label for="senha" class="block text-gray-600 text-sm font-medium mb-2">Senha:</label>
+    <input type="password" id="senha" formControlName="senha" class="w-full border p-2 rounded">
+  </div>
+
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Salvar</button>
+</form>
